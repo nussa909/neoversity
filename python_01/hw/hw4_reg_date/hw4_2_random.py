@@ -30,4 +30,4 @@ lottery_numbers = get_numbers_ticket(1, 3, 6)
 print("1,3,6:", lottery_numbers)
 
 lottery_numbers = get_numbers_ticket(1, 7, 6)
-print("1,3,6:", lottery_numbers)
+print("1,7,6:", lottery_numbers)
