@@ -3,6 +3,7 @@ import re
 def normalize_phone(phone_number):
 
     clear_phone_number = re.sub(r"[^+\d]", "", phone_number)
+    print(clear_phone_number)
 
     pattern_dict = {r"\A\+38\d{3}\d{7}":"", 
                     r"\A38\d{3}\d{7}" : "+", 
@@ -26,6 +27,7 @@ raw_numbers = [
     "(050)8889900",
     "38050-111-22-22",
     "38050 111 22 11   ",
+    "38050+111+22+11"
 ]
 
 sanitized_numbers = [normalize_phone(num) for num in raw_numbers]

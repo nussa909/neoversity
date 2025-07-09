@@ -55,6 +55,12 @@ def display_log_counts(counts: dict):
         print(f"{log_level:^20}|{count:^20}")
 
 
+def display_log_details(logs:list, debug_level:str):
+    print(f"\nLog details for debug level \"{debug_level}\":")
+    for log in filter_logs_by_level(logs, debug_level):
+        print(f"{log['date']} {log['time']} - {log['message']}")
+
+
 def main():
     if len(sys.argv) < 2:
         print("Error: not enough parameters")
@@ -71,9 +77,7 @@ def main():
     if len(sys.argv) > 2:
         if sys.argv[2].lower() in ["info", "error", "debug", "warning"]:
             debug_level = sys.argv[2].upper()
-            print(f"\nLog details for debug level \"{debug_level}\":")
-            for log in filter_logs_by_level(loaded_logs, debug_level):
-                print(f"{log['date']} {log['time']} - {log['message']}")
+            display_log_details(loaded_logs, debug_level)
         else:
             print(f"\nError: unknown debug level {sys.argv[2]}")
 
